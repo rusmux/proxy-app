@@ -5,7 +5,7 @@ from time import sleep
 import pytest
 
 
-@pytest.mark.parametrize("module", ["src.main", "src.main_dummy"])
+@pytest.mark.parametrize("module", "src.main_dummy")
 def test_main(module: str):
     process = subprocess.Popen([sys.executable, "-m", module])
     sleep(5)  # wait for the app to load

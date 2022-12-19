@@ -1,6 +1,6 @@
 """App launch script with all proxies overriden with :class:`src.proxy.DummyProxy`."""
 
-from dependency_injector.wiring import inject, Provide
+from dependency_injector.wiring import Provide, inject
 
 from src.app import ProxyApp
 from src.containers import Container, DummyContainer

@@ -8,8 +8,11 @@ from src.proxy import DummyProxy
 
 
 @pytest.fixture
-def dummy_proxy(request):
-    return DummyProxy(name=request.param.get("name"), update_interval=request.param.get("update_interval"))
+def dummy_proxy(request) -> DummyProxy:
+    name = request.param.get("name")
+    update_interval = request.param.get("update_interval")
+
+    return DummyProxy(name, update_interval)
 
 
 @pytest.mark.parametrize(

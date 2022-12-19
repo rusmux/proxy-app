@@ -1,11 +1,11 @@
 """Utilities for working with ip addresses."""
 
-from functools import lru_cache
-from typing import Union
 import os
 import random
 import socket
 import struct
+from functools import lru_cache
+from typing import Union
 
 import requests
 

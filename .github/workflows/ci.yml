@@ -3,32 +3,35 @@ name: CI
 on: [ push, pull_request ]
 
 jobs:
-  
-  format:
-    runs-on: ubuntu-latest
-    
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Black
-        uses: psf/black@stable
-        with:
-          options: ""  # to overwrite default values
-
-      - name: Isort
-        uses: isort/isort-action@v1
-        with:
-          configuration: "--verbose"
 
   lint:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
-      - name: wemake-python-styleguide
+
+      - name: Lint with wemake-python-styleguide
         uses: wemake-services/wemake-python-styleguide@0.17.0
         with:
           reporter: 'github-pr-review'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.8
+
+      - name: Install dependencies
+        run:
+          pip install .
+
+      - name: Test with pytest
+        run:
+          pytest
