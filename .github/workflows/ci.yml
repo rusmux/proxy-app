@@ -16,3 +16,5 @@ jobs:
           reporter: 'github-pr-review'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # no tests in CI because rumps can be installed only on Macs.

@@ -26,12 +26,12 @@ pytest = "^7.2.0"
 coverage = "^6.5.0"
 pre-commit = "^2.20.0"
 
-# for CI
+# for pre-commit hooks
 [tool.black]
 line-length = 120
 target-version = ["py38", "py39", "py310"]
 
-# for CI
+# for pre-commit hooks
 [tool.isort]
 profile = 'black'
 line_length = 120

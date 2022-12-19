@@ -1,6 +1,5 @@
 """Implementation of :class:`src.proxy.Proxy` for the HTTP and HTTPS proxy protocols."""
 
-
 import re
 import subprocess
 from abc import ABC

@@ -1,14 +1,12 @@
 """Menu bar :class:`rumps.App` to enable and disable proxy."""
 
-from pathlib import Path
+import os
 from typing import List
 
 import rumps
 
 from src.app.proxy_item import ProxyItem
 from src.proxy import Proxy
-
-project_dir = Path(__file__).parents[2]
 
 
 class ProxyApp(rumps.App):
@@ -22,7 +20,7 @@ class ProxyApp(rumps.App):
         super().__init__(name="Proxy")
 
         self.title = " Proxy"
-        self.icon = str(project_dir / "icons" / "icon.png")
+        self.icon = os.path.join(os.path.dirname(__file__), "icons", "icon.png")
         self.quit_button = None
 
         self.proxies = proxies
