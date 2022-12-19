@@ -16,7 +16,6 @@ NoneType = type(None)
     ],
 )
 class TestProxy:
-
     @pytest.fixture
     def proxy(self, proxy_class: type, args: dict):
         return proxy_class(**args)

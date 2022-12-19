@@ -1,3 +1,5 @@
+"""Containers with proxies and application for dependency injection."""
+
 from dependency_injector import containers, providers
 
 from src.app.app import ProxyApp

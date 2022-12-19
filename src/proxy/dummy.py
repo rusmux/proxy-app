@@ -1,3 +1,5 @@
+"""Dummy :class:`src.proxy.Proxy` for testing purposes."""
+
 import random
 import threading
 from contextlib import contextmanager
@@ -47,17 +49,20 @@ class DummyDynamicProxyServer:
             sleep(self.update_interval)
 
     def start_updating(self) -> None:
+        """Start updating the ip address and country."""
         if self.update_interval and self.update_interval > 0:
             self._busy = True
             self._thread.start()
 
     def stop_updating(self) -> None:
+        """Stop updating the ip address and country."""
         if self._busy:
             self._busy = False
             self._thread.join()
 
     @contextmanager
     def updating(self) -> Generator[None, None, None]:
+        """Context manager for updating the ip address and country."""
         self.start_updating()
         yield
         self.stop_updating()
@@ -96,13 +101,16 @@ class DummyProxy(BaseProxy):
         return self._proxy_server.country
 
     def start_updating(self) -> None:
+        """Start updating the ip address and country."""
         self._proxy_server.start_updating()
 
     def stop_updating(self) -> None:
+        """Stop updating the ip address and country."""
         self._proxy_server.stop_updating()
 
     @contextmanager
     def updating(self) -> Generator[None, None, None]:
+        """Context manager for updating the ip address and country."""
         self.start_updating()
         yield
         self.stop_updating()

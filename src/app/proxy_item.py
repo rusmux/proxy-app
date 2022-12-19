@@ -1,4 +1,4 @@
-"""Wrapper for :class:`src.proxy.Proxy` class to be like :class:`rumps.rumps.MenuItem`."""
+"""Wrapper for :class:`src.proxy.Proxy` class to be used like :class:`rumps.MenuItem`."""
 
 import subprocess
 from enum import Enum
@@ -24,6 +24,11 @@ class AlertResponse(int, Enum):
 
 
 class ProxyItem:
+    """:class:`rumps.MenuItem`-like wrapper for :class:`src.proxy.Proxy`.
+
+    Args:
+        proxy (Proxy): proxy to wrap.
+    """
 
     def __init__(self, proxy: Proxy) -> None:
         self.proxy = proxy
@@ -70,6 +75,7 @@ class ProxyItem:
         self.menu[3].title = f"Country: {self.country}"
 
     def alert(self) -> None:
+        """Show an alert that the connection to the proxy server cannot be established."""
         if self.ignore:
             return
 

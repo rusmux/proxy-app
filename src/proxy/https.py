@@ -1,3 +1,6 @@
+"""Implementation of :class:`src.proxy.Proxy` for the HTTP and HTTPS proxy protocols."""
+
+
 import re
 import subprocess
 from abc import ABC
@@ -8,7 +11,11 @@ from src.proxy.base import BaseProxy
 
 
 class BaseHTTPProxy(BaseProxy, ABC):
-    """Base class for HTTP and HTTPS proxies."""
+    """Base class for HTTP and HTTPS proxies.
+
+    Args:
+        secure (bool): Use HTTPS protocol if True, HTTP otherwise.
+    """
 
     _state_pattern = re.compile(r"Enabled: (Yes\b|No\b)")
     _ip_pattern = re.compile("Server: (.*)")

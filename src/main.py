@@ -1,3 +1,5 @@
+"""App launch script."""
+
 from dependency_injector.wiring import inject, Provide
 
 from src.app import ProxyApp

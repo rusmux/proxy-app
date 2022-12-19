@@ -11,7 +11,6 @@ def test_dummy_proxy():
 
 
 class TestContainer:
-
     @pytest.fixture
     def container(self):
         return Container()

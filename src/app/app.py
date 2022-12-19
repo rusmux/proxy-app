@@ -1,4 +1,4 @@
-"""Menu bar app to enable and disable proxy."""
+"""Menu bar :class:`rumps.App` to enable and disable proxy."""
 
 from pathlib import Path
 from typing import List
@@ -12,7 +12,11 @@ project_dir = Path(__file__).parents[2]
 
 
 class ProxyApp(rumps.App):
-    """Rumps app to enable and disable proxy from the menu bar."""
+    """:class:`rumps.App` to enable and disable proxy from the menu bar.
+
+    Args:
+        proxies (list of Proxy): proxies to show in the app.
+    """
 
     def __init__(self, proxies: List[Proxy]):
         super().__init__(name="Proxy")

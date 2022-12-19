@@ -9,16 +9,26 @@ jobs:
     
     steps:
       - uses: actions/checkout@v3
-      - uses: psf/black@stable
+
+      - name: Black
+        uses: psf/black@stable
+        with:
+          options: ""  # to overwrite default values
+
+      - name: Isort
+        uses: isort/isort-action@v1
+        with:
+          configuration: "--verbose"
 
   lint:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
-      - uses: wemake-services/wemake-python-styleguide
+      - name: wemake-python-styleguide
+        uses: wemake-services/wemake-python-styleguide@0.17.0
         with:
-          reporter: "github-pr-reviewer"
+          reporter: 'github-pr-review'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
