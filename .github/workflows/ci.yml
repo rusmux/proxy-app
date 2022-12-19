@@ -1,0 +1,24 @@
+name: CI
+
+on: [ push, pull_request ]
+
+jobs:
+  
+  format:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      - uses: psf/black@stable
+
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: wemake-services/wemake-python-styleguide
+        with:
+          reporter: "github-pr-reviewer"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
