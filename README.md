@@ -13,5 +13,4 @@ manually, you can now simply do it from the menu bar.
 
 The application is written using [rumps](https://github.com/jaredks/rumps) framework.
 
-<img src="images/1.png" alt="Example" width="350px">
-<img src="images/2.png" alt="Example" width="350px">
+<img src="images/1.png" alt="Example" height="350px">&emsp;<img src="images/2.png" alt="Example" height="350px">
