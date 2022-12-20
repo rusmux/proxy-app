@@ -10,12 +10,14 @@ clean:
 	find . -type d -name ".pytest_cache" -exec rm -r -v {} +
 	find . -type d -name ".ipynb_checkpoints" -exec rm -r -v {} +
 
+	find . -type d -name "build" -exec rm -r -v {} +
+	find . -type d -name "dist" -exec rm -r -v {} +
+	find . -type d -name "Proxy.egg-info" -exec rm -r -v {} +
+
 build: clean
-	rm -rf build dist
 	python setup.py py2app
 
 build_dev: clean
-	rm -rf build dist
 	python setup.py py2app --alias
 
 run:
