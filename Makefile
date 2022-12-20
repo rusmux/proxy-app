@@ -30,3 +30,5 @@ run_app:
 coverage:
 	coverage run -m pytest
 	coverage html
+	coverage xml
+	- ./codecov -t ${CODECOV_TOKEN}
